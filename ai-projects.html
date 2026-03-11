@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Projects | Pradeep Kasula</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="dark">
+  <div class="page">
+    <header class="site-header">
+  <div class="logo">PK</div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="skills.html" class="nav-link">Skills</a>
+    <a href="ai-projects.html" class="nav-link">AI Projects</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    🌙
+  </button>
+</header>
+
+    <main>
+      <section class="card card-full">
+        <h2><span>GenAI</span> & Agentic AI Work</h2>
+        <p class="body-text">
+          I am actively experimenting with Generative AI, RAG, and Agentic AI
+          to augment developers and domain experts working on insurance and
+          enterprise applications.
+        </p>
+        <p class="body-text">
+          Most of these projects start as internal prototypes or experiments,
+          with a strong focus on reliability, guardrails, and measurable impact
+          on delivery speed.
+        </p>
+      </section>
+
+      <section class="card card-full">
+        <h2><span>Example</span> AI Projects</h2>
+
+        <article class="project-card">
+          <h3>Developer Knowledge Copilot (RAG)</h3>
+          <p>
+            A retrieval‑augmented copilot that allows developers to query
+            internal documentation, API specifications, and code examples using
+            natural language instead of manual search.
+          </p>
+          <ul class="list">
+            <li>Ingested design docs, API contracts, and code snippets into a vector store.</li>
+            <li>Built a RAG pipeline to retrieve relevant context and generate grounded answers.</li>
+            <li>Focused on explaining domain‑specific concepts in benefits/insurance systems.</li>
+          </ul>
+          <div class="chips-row">
+            <span class="chip">RAG</span>
+            <span class="chip">LLM Orchestration</span>
+            <span class="chip">Developer Experience</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>Incident & Log Analysis Assistant</h3>
+          <p>
+            An AI assistant that helps engineers interpret application logs and
+            error traces, suggesting likely root causes and next debugging
+            steps for production issues.
+          </p>
+          <ul class="list">
+            <li>Used LLMs with structured prompts to summarize error bursts and patterns.</li>
+            <li>Integrated with existing logging/monitoring tools to fetch relevant context.</li>
+            <li>Emphasized transparency by always showing raw evidence and reasoning steps.</li>
+          </ul>
+          <div class="chips-row">
+            <span class="chip">Agentic AI</span>
+            <span class="chip">Observability</span>
+            <span class="chip">Reliability Engineering</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>Requirements Clarification Bot</h3>
+          <p>
+            A conversational assistant that refines vague business
+            requirements into clearer user stories and acceptance criteria,
+            improving communication between product and engineering.
+          </p>
+          <ul class="list">
+            <li>Guides stakeholders through structured clarification questions.</li>
+            <li>Generates candidate user stories, edge cases, and test ideas.</li>
+            <li>Designed with explicit safety prompts and review loops.</li>
+          </ul>
+          <div class="chips-row">
+            <span class="chip">Prompt Engineering</span>
+            <span class="chip">Productivity</span>
+            <span class="chip">Team Collaboration</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="card card-full">
+        <h2><span>Tools</span> & Stack</h2>
+        <div class="skills-grid">
+          <div>
+            <div class="skills-col-title">AI Platforms</div>
+            <div class="skills-list">
+              <span class="skill-pill">AWS Bedrock</span>
+              <span class="skill-pill">Hosted LLM APIs</span>
+            </div>
+          </div>
+          <div>
+            <div class="skills-col-title">Dev Tools</div>
+            <div class="skills-list">
+              <span class="skill-pill hot">Kiro</span>
+              <span class="skill-pill hot">Cursor</span>
+              <span class="skill-pill">Python · Streamlit</span>
+              <span class="skill-pill">Java · Spring Boot</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> · Pradeep Kasula</span>
+      <span><a href="index.html">Back to Home</a></span>
+    </footer>
+  </div>
+
+<script>
+  const body = document.body;
+  const toggleBtn = document.getElementById("themeToggle");
+  const storageKey = "pk-theme";
+
+  function setTheme(theme) {
+    body.setAttribute("data-theme", theme);
+    if (toggleBtn) {
+      toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
+    }
+  }
+
+  // Load saved preference or system preference
+  (function initTheme() {
+    const saved = localStorage.getItem(storageKey);
+    if (saved === "dark" || saved === "light") {
+      setTheme(saved);
+      return;
+    }
+    const prefersDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setTheme(prefersDark ? "dark" : "light");
+  })();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = body.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      setTheme(next);
+      localStorage.setItem(storageKey, next);
+    });
+  }
+
+  // Handle year in footer
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear().toString();
+  }
+</script>
+</body>
+</html>

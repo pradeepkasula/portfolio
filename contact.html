@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Pradeep Kasula</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="dark">
+  <div class="page">
+    <header class="site-header">
+  <div class="logo">PK</div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="skills.html" class="nav-link">Skills</a>
+    <a href="ai-projects.html" class="nav-link">AI Projects</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    🌙
+  </button>
+</header>
+
+    <main>
+      <section class="card card-full">
+        <h2><span>Contact</span> Me</h2>
+        <p class="body-text">
+          I am open to Principal Developer, Staff Engineer, and architecture‑heavy
+          backend roles, as well as opportunities to work on GenAI / Agentic AI
+          initiatives for enterprise products.
+        </p>
+        <p class="body-text">
+          The easiest way to reach me is via email or LinkedIn.
+        </p>
+
+        <div class="chips-row">
+          <span class="chip-accent">
+            ✉️ Email: <a href="mailto:pradeepkasula2704@gmail.com">pradeepkasula2704@gmail.com</a>
+          </span>
+          <span class="chip">
+            🔗 LinkedIn:
+            <a
+              href="https://www.linkedin.com/in/pradeep-kasula-7b740931"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/pradeep-kasula-7b740931
+            </a>
+          </span>
+          <span class="chip">📍 Hyderabad, Telangana, India</span>
+        </div>
+      </section>
+
+      <section class="card card-full">
+        <h2><span>Say</span> Hello</h2>
+        <form
+          class="contact-form"
+          action="mailto:pradeepkasula2704@gmail.com"
+          method="post"
+          enctype="text/plain"
+        >
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required />
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Tell me about the role, project, or collaboration..."
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Send Message
+          </button>
+        </form>
+        <p class="body-text note">
+          Note: This simple form uses a <code>mailto:</code> action; for a
+          production site you can integrate a backend or a service like Formspree.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> · Pradeep Kasula</span>
+      <span><a href="index.html">Back to Home</a></span>
+    </footer>
+  </div>
+
+<script>
+  const body = document.body;
+  const toggleBtn = document.getElementById("themeToggle");
+  const storageKey = "pk-theme";
+
+  function setTheme(theme) {
+    body.setAttribute("data-theme", theme);
+    if (toggleBtn) {
+      toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
+    }
+  }
+
+  // Load saved preference or system preference
+  (function initTheme() {
+    const saved = localStorage.getItem(storageKey);
+    if (saved === "dark" || saved === "light") {
+      setTheme(saved);
+      return;
+    }
+    const prefersDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setTheme(prefersDark ? "dark" : "light");
+  })();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = body.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      setTheme(next);
+      localStorage.setItem(storageKey, next);
+    });
+  }
+
+  // Handle year in footer
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear().toString();
+  }
+</script>
+</body>
+</html>

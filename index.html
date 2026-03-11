@@ -6,807 +6,203 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Portfolio of Pradeep Kasula - Principal Developer | Java | Spring Boot | Microservices | Kafka | Gen AI | AI Agents | AWS."
+    content="Principal Developer with 18+ years of experience in Java, Spring Boot, microservices, insurance, healthcare, and Gen AI."
   />
-  <style>
-    :root {
-      --bg: #0b1020;
-      --bg-alt: #111729;
-      --card: #151b2f;
-      --accent: #4f46e5;
-      --accent-soft: rgba(79, 70, 229, 0.15);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --chip-bg: #111827;
-      --chip-border: #1f2937;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.5);
-      --radius-lg: 18px;
-      --radius-pill: 999px;
-      --transition: 180ms ease-out;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 60%);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 32px 18px 56px;
-    }
-
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      align-items: center;
-      margin-bottom: 28px;
-    }
-
-    .avatar {
-      width: 92px;
-      height: 92px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, #4f46e5, #22c55e);
-      padding: 3px;
-      box-shadow: var(--shadow-soft);
-      flex-shrink: 0;
-    }
-
-    .avatar-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      background: radial-gradient(circle at 20% 0%, #111827 0, #020617 55%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-      font-weight: 700;
-      color: #e5e7eb;
-    }
-
-    .headline {
-      flex: 1;
-      min-width: 240px;
-    }
-
-    .headline-top-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .online-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
-    }
-
-    .role-pill {
-      border-radius: var(--radius-pill);
-      padding: 4px 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      background: rgba(79, 70, 229, 0.22);
-      border: 1px solid rgba(79, 70, 229, 0.5);
-    }
-
-    h1 {
-      font-size: clamp(1.7rem, 3vw, 2.1rem);
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
-
-    .headline-sub {
-      color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 640px;
-    }
-
-    .headline-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-    }
-
-    .tag {
-      border-radius: var(--radius-pill);
-      padding: 4px 10px;
-      font-size: 11px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.75);
-      color: var(--muted);
-    }
-
-    .header-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      min-width: 180px;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      flex: 1;
-      min-width: 120px;
-      border-radius: var(--radius-pill);
-      padding: 8px 14px;
-      font-size: 0.9rem;
-      border: 1px solid transparent;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition),
-        background var(--transition), border-color var(--transition);
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #4f46e5, #22c55e);
-      color: white;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.75);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-    }
-
-    .btn-ghost {
-      background: rgba(15, 23, 42, 0.7);
-      border-color: var(--border);
-      color: var(--muted);
-    }
-
-    .btn-ghost:hover {
-      background: #020617;
-      border-color: #374151;
-    }
-
-    .location {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .pill-open {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border-radius: var(--radius-pill);
-      border: 1px dashed rgba(52, 211, 153, 0.6);
-      background: rgba(6, 95, 70, 0.3);
-      padding: 3px 10px;
-      font-size: 11px;
-      color: #6ee7b7;
-      margin-top: 4px;
-      width: fit-content;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: 2.2fr 1.5fr;
-      gap: 22px;
-    }
-
-    @media (max-width: 880px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    section {
-      margin-bottom: 16px;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #020617, #020617 40%, #020617 100%);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 16px 18px 18px;
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(12px);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at top left,
-        rgba(79, 70, 229, 0.12),
-        transparent 60%
-      );
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-
-    .card h2 {
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 10px;
-    }
-
-    .card h2 span {
-      color: #e5e7eb;
-    }
-
-    .about-text {
-      font-size: 0.9rem;
-      color: var(--muted);
-      max-height: 210px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .about-text strong {
-      color: #e5e7eb;
-      font-weight: 600;
-    }
-
-    .about-text::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .about-text::-webkit-scrollbar-thumb {
-      background: #1f2937;
-      border-radius: 999px;
-    }
-
-    .chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .chip {
-      border-radius: var(--radius-pill);
-      padding: 3px 8px;
-      font-size: 11px;
-      background: var(--chip-bg);
-      border: 1px solid var(--chip-border);
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .chip-accent {
-      background: var(--accent-soft);
-      border-color: rgba(129, 140, 248, 0.7);
-      color: #c7d2fe;
-    }
-
-    .timeline {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      font-size: 0.9rem;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 7px;
-      top: 2px;
-      bottom: 2px;
-      width: 1px;
-      background: linear-gradient(
-        to bottom,
-        rgba(148, 163, 184, 0.7),
-        transparent
-      );
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 22px;
-    }
-
-    .timeline-item-dot {
-      position: absolute;
-      left: 1px;
-      top: 6px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #020617;
-      border: 2px solid #4f46e5;
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
-    }
-
-    .timeline-item-title {
-      font-size: 0.9rem;
-      color: #e5e7eb;
-    }
-
-    .timeline-item-subtitle {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .timeline-item-meta {
-      font-size: 0.75rem;
-      color: #6b7280;
-      margin-top: 2px;
-    }
-
-    .timeline-item-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 4px;
-    }
-
-    .pill {
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      color: #9ca3af;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .skills-col-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #9ca3af;
-      margin-bottom: 2px;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .skill-pill {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: var(--radius-pill);
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid #1f2937;
-      color: #d1d5db;
-    }
-
-    .skill-pill.hot {
-      border-color: rgba(129, 140, 248, 0.9);
-      background: rgba(17, 24, 39, 0.9);
-      color: #c7d2fe;
-    }
-
-    .meta-line {
-      font-size: 0.8rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 2px;
-    }
-
-    .meta-line span {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .badge {
-      font-size: 10px;
-      padding: 3px 7px;
-      border-radius: var(--radius-pill);
-      background: rgba(55, 65, 81, 0.6);
-      border: 1px solid rgba(75, 85, 99, 0.8);
-      color: #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    footer {
-      margin-top: 24px;
-      font-size: 0.8rem;
-      color: #6b7280;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    footer a {
-      color: #9ca3af;
-      text-decoration: underline;
-      text-decoration-style: dotted;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body data-theme="dark">
   <div class="page">
-    <header>
+   <header class="site-header">
+  <div class="logo">PK</div>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="experience.html" class="nav-link">Experience</a>
+    <a href="skills.html" class="nav-link">Skills</a>
+    <a href="ai-projects.html" class="nav-link">AI Projects</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+    🌙
+  </button>
+</header>
+    <header class="hero">
       <div class="avatar">
         <div class="avatar-inner">P</div>
       </div>
-
-      <div class="headline">
+      <div class="hero-main">
         <div class="headline-top-row">
           <div class="online-dot"></div>
           <div class="role-pill">Principal Developer · He / Him</div>
         </div>
-        <h1>Pradeep Kasula</h1>
-        <p class="headline-sub">
+        <h1 class="hero-title">Pradeep Kasula</h1>
+        <p class="hero-subtitle">
           Principal Developer specialising in Java, Spring Boot, microservices,
-          and event-driven architecture, now building Gen&nbsp;AI and Agentic&nbsp;AI
-          solutions on AWS for large-scale enterprise systems.
+          and event‑driven architecture, building Gen&nbsp;AI and Agentic&nbsp;AI
+          solutions on AWS for insurance, healthcare, and financial platforms.
         </p>
         <div class="headline-tags">
           <span class="tag">Java · Spring Boot · Microservices</span>
           <span class="tag">Kafka · REST · GraphQL</span>
-          <span class="tag">AWS (3x Certified)</span>
+          <span class="tag">AWS (3× Certified)</span>
           <span class="tag">Gen AI · RAG · AI Agents</span>
         </div>
-      </div>
-
-      <div class="header-actions">
-        <div class="btn-row">
-          <a
-            class="btn btn-primary"
-            href="mailto:pradeepkasula2704@gmail.com"
-          >
-            ✉️ Contact me
-          </a>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="contact.html">✉️ Work with me</a>
           <a
             class="btn btn-ghost"
             href="https://www.linkedin.com/in/pradeep-kasula-7b740931"
             target="_blank"
             rel="noopener noreferrer"
           >
-            🔗 LinkedIn
+            🔗 LinkedIn Profile
           </a>
         </div>
-        <div class="location">📍 Hyderabad, Telangana, India</div>
-        <div class="pill-open">
-          <span>🟢 Open to Principal Developer roles</span>
+        <div class="hero-meta">
+          <span>📍 Hyderabad, Telangana, India</span>
+          <span class="pill-open">🟢 Open to Principal Developer roles</span>
         </div>
       </div>
     </header>
 
-    <main>
-      <!-- Left column -->
-      <div>
-        <section class="card">
-          <h2><span>About</span> & Focus</h2>
-          <div class="about-text">
+    <main class="grid-two">
+      <section class="card">
+        <h2><span>About</span> Me</h2>
+        <p class="body-text">
+          I am a software development professional with <strong>18+ years</strong> of
+          experience designing and delivering scalable, high‑performance, and secure
+          enterprise products using advanced Java/JEE technologies.
+        </p>
+        <p class="body-text">
+          I have played key roles as Principal Developer, Tech Lead, Senior Engineer,
+          and Scrum Master, leading distributed teams, mentoring engineers, and
+          driving architecture decisions for complex enterprise systems.
+        </p>
+        <p class="body-text">
+          My domain work spans healthcare (EHR, e‑prescriptions, FDB, SureScripts,
+          HL7, HIPAA), photo publishing, and insurance / benefits / investments,
+          including document &amp; image processing, batch processing, and
+          analytics‑heavy workloads.
+        </p>
+        <p class="body-text">
+          In recent years, I have been focused on <strong>Generative AI</strong>,
+          RAG, and Agentic AI, building AI‑augmented workflows on AWS that
+          accelerate development and unlock new product capabilities.
+        </p>
+        <div class="chips-row">
+          <span class="chip-accent">Backend & System Design</span>
+          <span class="chip">Distributed systems</span>
+          <span class="chip">Cloud‑native architecture</span>
+          <span class="chip">Gen AI & Agentic AI</span>
+          <span class="chip">Technical leadership & mentoring</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2><span>Snapshot</span> Overview</h2>
+        <ul class="list">
+          <li>18+ years building enterprise products and platforms.</li>
+          <li>Deep experience in benefits, insurance, and investment systems.</li>
+          <li>Hands‑on microservices, event‑driven, and cloud‑native design.</li>
+          <li>Strong focus on performance, scalability, and observability.</li>
+          <li>Early adopter of GenAI and Agentic AI for developer productivity.</li>
+        </ul>
+        <div class="meta-line" style="margin-top: 10px">
+          <span>📚 MCA & Bachelors in Computer Science – Acharya Nagarjuna University</span>
+        </div>
+      </section>
+
+      <section class="card card-full">
+        <h2><span>Highlights</span> & Impact</h2>
+        <div class="highlights-grid">
+          <article class="highlight">
+            <h3>Insurance & Benefits Platforms</h3>
             <p>
-              Highly skilled software development professional with
-              <strong>18+ years</strong> of experience designing and delivering
-              scalable, high‑performance, and secure enterprise products using
-              advanced Java/JEE technologies.
+              Led backend and platform components for large group benefits and
+              insurance products, powering quoting, policy administration, claims,
+              and self‑service portals for global insurers.
             </p>
+          </article>
+          <article class="highlight">
+            <h3>Cloud‑Native Modernisation</h3>
             <p>
-              I have led and mentored teams as Tech Lead, Senior Engineer,
-              Scrum Master, and Principal Developer, with hands‑on expertise in
-              building distributed systems from scratch and modernising legacy
-              platforms into cloud‑native architectures.
+              Contributed to migrating on‑premise monoliths to cloud‑native
+              microservices using Spring Boot, AWS, Kafka, and modern DevOps
+              practices while preserving critical domain flows.
             </p>
+          </article>
+          <article class="highlight">
+            <h3>Healthcare EHR Solutions</h3>
             <p>
-              Domain work spans healthcare (EHR, e‑prescriptions, FDB, SureScripts,
-              HL7, HIPAA), photo publishing, and insurance / benefits /
-              investments, including document &amp; image processing, batch
-              processing, and analytics‑heavy workloads.
+              Implemented EHR modules with FDB, SureScripts, HL7 interfaces, and
+              HIPAA‑compliant workflows for US healthcare providers.
             </p>
+          </article>
+          <article class="highlight">
+            <h3>GenAI & Agentic AI Adoption</h3>
             <p>
-              Recently, I have been focusing on <strong>Generative AI</strong>,
-              RAG, and **Agentic** AI, building AI‑augmented developer and
-              business workflows using tools like Kiro, Cursor, and AWS Bedrock,
-              while keeping reliability, observability, and maintainability at
-              the core of every solution.
+              Exploring and building GenAI‑based tools to augment engineers,
+              including RAG copilots, AI‑driven code analysis, and agentic flows
+              orchestrating multi‑step tasks on AWS.
             </p>
-            <div class="chips-row">
-              <span class="chip-accent">Backend & System Design</span>
-              <span class="chip">Distributed systems</span>
-              <span class="chip">Cloud‑native architecture</span>
-              <span class="chip">Gen AI & AI Agents</span>
-              <span class="chip">Technical leadership & mentoring</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2><span>Experience</span> Timeline</h2>
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-item-dot"></div>
-              <div class="timeline-item-title">
-                Principal Developer · Majesco
-              </div>
-              <div class="timeline-item-subtitle">Insurance &amp; Benefits SaaS</div>
-              <div class="timeline-item-meta">
-                Jan 2026 – Present · Hyderabad · Hybrid
-              </div>
-              <div class="timeline-item-tags">
-                <span class="pill">Java · Spring Boot</span>
-                <span class="pill">Microservices</span>
-                <span class="pill">AWS</span>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item-dot"></div>
-              <div class="timeline-item-title">
-                Principal Developer · Vitech Systems Group
-              </div>
-              <div class="timeline-item-subtitle">
-                Benefits, Insurance &amp; Investment Platforms
-              </div>
-              <div class="timeline-item-meta">
-                Jul 2012 – Jan 2026 · 13 yrs 7 mos · Hyderabad · Hybrid
-              </div>
-              <div class="timeline-item-tags">
-                <span class="pill">Spring Boot · Spring Reactive</span>
-                <span class="pill">Microservices · GraphQL</span>
-                <span class="pill">MongoDB · Postgres</span>
-                <span class="pill">Kafka · Solr</span>
-                <span class="pill">Jasper Reports · Batch</span>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item-dot"></div>
-              <div class="timeline-item-title">
-                Java Software Engineer · Snapfish
-              </div>
-              <div class="timeline-item-subtitle">
-                Snapfish Publisher · Photo Products
-              </div>
-              <div class="timeline-item-meta">
-                Mar 2010 – Jul 2012 · 2 yrs 5 mos · Hyderabad
-              </div>
-              <div class="timeline-item-tags">
-                <span class="pill">Java · J2EE</span>
-                <span class="pill">JavaScript (SWIFT)</span>
-                <span class="pill">REST APIs</span>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item-dot"></div>
-              <div class="timeline-item-title">
-                Software Engineer · Heartcom Inc.
-              </div>
-              <div class="timeline-item-subtitle">Healthcare · EHR Platform</div>
-              <div class="timeline-item-meta">
-                Oct 2007 – Feb 2010 · 2 yrs 5 mos · Hyderabad
-              </div>
-              <div class="timeline-item-tags">
-                <span class="pill">EHR · EMR</span>
-                <span class="pill">FDB · SureScripts</span>
-                <span class="pill">HL7 · HIPAA</span>
-                <span class="pill">Java · JSP</span>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item-dot"></div>
-              <div class="timeline-item-title">
-                Software Programmer · SP Software Pvt Ltd
-              </div>
-              <div class="timeline-item-subtitle">Desktop Applications</div>
-              <div class="timeline-item-meta">
-                Jun 2006 – Aug 2007 · 1 yr 3 mos · Hyderabad
-              </div>
-              <div class="timeline-item-tags">
-                <span class="pill">Java AWT</span>
-                <span class="pill">Java Swing</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2><span>Education</span> & Credentials</h2>
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-item-dot"></div>
-              <div class="timeline-item-title">
-                MCA · Computer Science
-              </div>
-              <div class="timeline-item-subtitle">
-                Acharya Nagarjuna University
-              </div>
-              <div class="timeline-item-meta">2002 – 2005</div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item-dot"></div>
-              <div class="timeline-item-title">
-                Bachelor of Computers · Computer Science
-              </div>
-              <div class="timeline-item-subtitle">
-                Acharya Nagarjuna University
-              </div>
-              <div class="timeline-item-meta">1999 – 2002</div>
-            </article>
-          </div>
-
-          <div class="chips-row" style="margin-top: 10px">
-            <span class="chip-accent">
-              🏅 Building with Agentic AI · BeSA · 2026
-            </span>
-            <span class="chip">
-              Kiro Getting Started · AWS · 2025
-            </span>
-            <span class="chip">AWS 3× Certified</span>
-          </div>
-        </section>
-      </div>
-
-      <!-- Right column -->
-      <div>
-        <section class="card">
-          <h2><span>Core</span> Tech Stack</h2>
-          <div class="skills-grid">
-            <div>
-              <div class="skills-col-title">Backend</div>
-              <div class="skills-list">
-                <span class="skill-pill hot">Java · J2EE</span>
-                <span class="skill-pill hot">Spring · Spring Boot</span>
-                <span class="skill-pill">JPA · Hibernate</span>
-                <span class="skill-pill">REST · GraphQL</span>
-                <span class="skill-pill">Kafka</span>
-              </div>
-            </div>
-
-            <div>
-              <div class="skills-col-title">Cloud & Data</div>
-              <div class="skills-list">
-                <span class="skill-pill hot">AWS</span>
-                <span class="skill-pill">PostgreSQL</span>
-                <span class="skill-pill">MySQL · Oracle</span>
-                <span class="skill-pill">MongoDB · DynamoDB</span>
-              </div>
-            </div>
-
-            <div>
-              <div class="skills-col-title">AI & Tools</div>
-              <div class="skills-list">
-                <span class="skill-pill hot">Generative AI</span>
-                <span class="skill-pill hot">RAG & AI Agents</span>
-                <span class="skill-pill">Agentic AI</span>
-                <span class="skill-pill">Kiro · Cursor</span>
-                <span class="skill-pill">AWS Bedrock</span>
-                <span class="skill-pill">Python · Streamlit</span>
-              </div>
-            </div>
-
-            <div>
-              <div class="skills-col-title">Observability</div>
-              <div class="skills-list">
-                <span class="skill-pill">CloudWatch</span>
-                <span class="skill-pill">Kibana</span>
-                <span class="skill-pill">Splunk</span>
-              </div>
-            </div>
-          </div>
-          <div class="meta-line" style="margin-top: 10px">
-            <span>
-              <strong style="font-size: 0.8rem; color: #e5e7eb"
-                >Top:</strong
-              >
-              Spring Framework · AWS · Generative AI · React.js
-            </span>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2><span>Leadership</span> & Impact</h2>
-          <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 8px">
-            Known for strong technical leadership, mentoring, and fast,
-            reliable delivery across globally distributed teams.
-          </p>
-          <div class="chips-row">
-            <span class="chip-accent">
-              ⭐ “Excellent leader… consistently great turnaround on features and
-              fixes.”
-            </span>
-            <span class="chip">
-              ⭐ “Ridiculously efficient… great debugging and analysis skills.”
-            </span>
-            <span class="chip">Mentoring developers & enabling teams</span>
-            <span class="chip">Driving performance & scalability</span>
-          </div>
-          <div class="meta-line" style="margin-top: 10px">
-            <span class="badge">
-              <span class="badge-dot"></span>
-              Actively sharing & learning in AI community
-            </span>
-          </div>
-        </section>
-
-        <section class="card">
-          <h2><span>Interests</span> & Causes</h2>
-          <p style="font-size: 0.88rem; color: var(--muted); margin-bottom: 8px">
-            I enjoy exploring modern architecture patterns, developer tooling,
-            and AI‑assisted productivity, and I care about using technology for
-            meaningful impact.
-          </p>
-          <div class="chips-row">
-            <span class="chip">Software architecture & system design</span>
-            <span class="chip">Developer experience & tooling</span>
-            <span class="chip">Arts & culture</span>
-            <span class="chip">Children & education</span>
-            <span class="chip">Health & human rights</span>
-            <span class="chip">Science & technology</span>
-            <span class="chip">Social services</span>
-          </div>
-        </section>
-      </div>
+          </article>
+        </div>
+      </section>
     </main>
 
-    <footer>
-      <div>© <span id="year"></span> · Built from my LinkedIn profile.</div>
-      <div>
-        View original profile:
+    <footer class="site-footer">
+      <span>© <span id="year"></span> · Pradeep Kasula</span>
+      <span>
+        View LinkedIn:
         <a
           href="https://www.linkedin.com/in/pradeep-kasula-7b740931"
           target="_blank"
           rel="noopener noreferrer"
-          >linkedin.com/in/pradeep-kasula-7b740931</a
         >
-      </div>
+          linkedin.com/in/pradeep-kasula-7b740931
+        </a>
+      </span>
     </footer>
   </div>
 
-  <script>
-    document.getElementById("year").textContent =
-      new Date().getFullYear().toString();
-  </script>
+<script>
+  const body = document.body;
+  const toggleBtn = document.getElementById("themeToggle");
+  const storageKey = "pk-theme";
+
+  function setTheme(theme) {
+    body.setAttribute("data-theme", theme);
+    if (toggleBtn) {
+      toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
+    }
+  }
+
+  // Load saved preference or system preference
+  (function initTheme() {
+    const saved = localStorage.getItem(storageKey);
+    if (saved === "dark" || saved === "light") {
+      setTheme(saved);
+      return;
+    }
+    const prefersDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    setTheme(prefersDark ? "dark" : "light");
+  })();
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = body.getAttribute("data-theme") || "dark";
+      const next = current === "dark" ? "light" : "dark";
+      setTheme(next);
+      localStorage.setItem(storageKey, next);
+    });
+  }
+
+  // Handle year in footer
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear().toString();
+  }
+</script>
+
 </body>
 </html>
